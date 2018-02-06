@@ -9,8 +9,11 @@ const app = express();
 const indexPath = path.join(__dirname, '/../dist/index.html');
 const staticPath = path.join(__dirname, '/../dist');
 
+if (process.env.NODE_ENV === 'local' || process.env.NODE_ENV === 'development') {
+    app.use(webpackDevMiddleware(compiler, {publicPath: webpackConfig.output.publicPath}));
+}
+
 app.use(express.static(staticPath));
-app.use(webpackDevMiddleware(compiler, {publicPath: webpackConfig.output.publicPath}));
 
 app.get('*', function (_, res) {
     res.sendFile(indexPath);

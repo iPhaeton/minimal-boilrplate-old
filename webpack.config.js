@@ -18,7 +18,4 @@ module.exports = {
             template: path.join(paths.APP, 'index.html'),
         }),
     ],
-    devServer: {
-        contentBase: paths.APP,
-    },
 };
