@@ -2,7 +2,9 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = (options) => ({
-    entry: path.resolve(process.cwd(), 'app/app.tsx'),
+    entry: [
+        path.resolve(process.cwd(), 'app/app.tsx')
+    ].concat(options.entry || []),
     module: {
         rules: [
             {
@@ -23,6 +25,6 @@ module.exports = (options) => ({
         new HtmlWebpackPlugin({
             template: path.resolve(process.cwd(), 'app/index.html'),
         }),
-    ],
+    ].concat(options.plugins || []),
     devtool: options.devtool,
 });
