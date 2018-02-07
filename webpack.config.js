@@ -9,6 +9,18 @@ const paths = {
 // Webpack configuration
 module.exports = {
     entry: path.join(paths.APP, 'app.tsx'),
+    module: {
+        rules: [
+            {
+                test: /\.tsx?$/,
+                use: 'ts-loader',
+                exclude: /node_modules/
+            }
+        ]
+    },
+    resolve: {
+        extensions: [ '.tsx', '.ts' ]
+    },
     output: {
         path: paths.DIST,
         filename: 'app.bundle.js'
