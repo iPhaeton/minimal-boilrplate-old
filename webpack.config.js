@@ -6,7 +6,6 @@ const paths = {
     APP: path.resolve(__dirname, 'app'),
 };
 
-// Webpack configuration
 module.exports = {
     entry: path.join(paths.APP, 'app.tsx'),
     module: {
@@ -30,4 +29,5 @@ module.exports = {
             template: path.join(paths.APP, 'index.html'),
         }),
     ],
+    devtool: (process.env.NODE_ENV === 'local' || process.env.NODE_ENV === 'local') && 'inline-source-map',
 };
