@@ -4,7 +4,7 @@
     "start": "node server",
     "start:dev": "NODE_ENV=development npm run start",
     "start:local": "NODE_ENV=local npm run start",
-    "build": "webpack"
+    "build": "NODE_ENV=production webpack --config internals/webpack"
   },
   "devDependencies": {
     "html-webpack-plugin": "^2.30.1",
