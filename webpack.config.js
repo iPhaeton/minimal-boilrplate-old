@@ -18,7 +18,7 @@ module.exports = {
         ]
     },
     resolve: {
-        extensions: [ '.tsx', '.ts' ]
+        extensions: [ '.tsx', '.ts', ".jsx", ".js" ]
     },
     output: {
         path: paths.DIST,

@@ -1,5 +1,9 @@
-function cons (message: string) {
-    console.log(message);
-}
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 
-cons('Hello, world!');
+ReactDOM.render(
+    <div>
+        DB Editor
+    </div>,
+    document.getElementById('app')
+);
