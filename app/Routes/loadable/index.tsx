@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 interface ILoadableState {
-    Component: new() => React.Component<any, any> | null;
+    Component: any;
 }
 
 export default (path: string) => {
@@ -12,8 +12,8 @@ export default (path: string) => {
         }
 
         async componentWillMount() {
-            const Component = await import(path);
-            this.setState({Component});
+            const Component = await import(`../../${path}/index`);
+            this.setState({Component: Component.default});
         }
 
         render() {
