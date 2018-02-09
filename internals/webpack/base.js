@@ -15,6 +15,7 @@ module.exports = (options) => ({
         ]
     },
     resolve: {
+        modules: ['app', 'node_modules'],
         extensions: [ '.tsx', '.ts', ".jsx", ".js" ]
     },
     output: {
