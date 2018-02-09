@@ -12,7 +12,7 @@ export default (path: string) => {
         }
 
         async componentWillMount() {
-            const Component = await import(`../../${path}/index`);
+            const Component = await import(`../../${path}.tsx`);
             this.setState({Component: Component.default});
         }
 
