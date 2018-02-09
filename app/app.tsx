@@ -1,8 +1,7 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
-import Home from 'components/Home';
-import About from 'components/About';
+import {BrowserRouter as Router} from 'react-router-dom';
+import Routes from 'Routes';
 
 declare const module: {
     hot: any,
@@ -10,10 +9,7 @@ declare const module: {
 
 ReactDOM.render(
     <Router>
-        <div>
-            <Route exact path="/" component={Home}/>
-            <Route exact path="/about" component={About}/>
-        </div>
+        <Routes/>
     </Router>,
     document.getElementById('app')
 );
