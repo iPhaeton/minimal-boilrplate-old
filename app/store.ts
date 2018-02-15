@@ -1,5 +1,6 @@
-import {createStore, compose} from 'redux';
+import {createStore, compose, applyMiddleware} from 'redux';
 import createReducer from './reducer';
+import freeze from 'redux-freeze';
 
 declare const window: Window & {
     devToolsExtension: any,
@@ -8,7 +9,14 @@ declare const window: Window & {
 const devtools = window.devToolsExtension || (() => (noop: any) => noop);
 
 export default function configureStore (initialState = {}) {
+    const middlewares = [];
+
+    if (process.env.NODE_ENV === 'local' || process.env.NODE_ENV === 'development') {
+        middlewares.push(freeze)
+    }
+
     const enhancers = [
+        applyMiddleware(...middlewares),
         devtools(),
     ]
 

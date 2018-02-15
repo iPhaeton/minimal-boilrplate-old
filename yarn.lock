@@ -710,6 +710,10 @@ deep-extend@~0.4.0:
   version "0.4.2"
   resolved "https://registry.yarnpkg.com/deep-extend/-/deep-extend-0.4.2.tgz#48b699c27e334bf89f10892be432f6e4c7d34a7f"
 
+deep-freeze-strict@1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/deep-freeze-strict/-/deep-freeze-strict-1.1.1.tgz#77d0583ca24a69be4bbd9ac2fae415d55523e5b0"
+
 define-property@^0.2.5:
   version "0.2.5"
   resolved "https://registry.yarnpkg.com/define-property/-/define-property-0.2.5.tgz#c35b1ef918ec3c990f9a5bc57be04aacec5c8116"
@@ -2517,6 +2521,12 @@ readdirp@^2.0.0:
     minimatch "^3.0.2"
     readable-stream "^2.0.2"
     set-immediate-shim "^1.0.1"
+
+redux-freeze@^0.1.5:
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/redux-freeze/-/redux-freeze-0.1.5.tgz#71af3b6d52cd4de1b1d3b66f3c8533682720ded1"
+  dependencies:
+    deep-freeze-strict "1.1.1"
 
 redux@^3.6.0, redux@^3.7.2:
   version "3.7.2"
