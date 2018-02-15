@@ -1,3 +1,9 @@
+const vars = require('dotenv').load({ path: `.env.${process.env.NODE_ENV}` });
+console.log(`Loaded environment variables for ${process.env.NODE_ENV}:`);
+console.log(vars && vars.parsed);
+
+const webpack = require('webpack');
+
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -23,6 +29,11 @@ module.exports = (options) => ({
         filename: 'app.bundle.js'
     },
     plugins: [
+        new webpack.EnvironmentPlugin(Object.assign(
+            vars.parsed ? vars.parsed : {},
+            {
+                NODE_ENV: process.env.NODE_ENV || 'development',
+            })),
         new HtmlWebpackPlugin({
             template: path.resolve(process.cwd(), 'app/index.html'),
         }),
