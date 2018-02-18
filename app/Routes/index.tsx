@@ -7,7 +7,7 @@ export default () => {
     return (
         <div>
             <Route exact path="/" component={Home}/>
-            <Route exact path="/about" component={injectRoute('About/index')}/>
+            <Route exact path="/about" component={injectRoute('About/index', {about: 'About/reducer'})}/>
         </div>
     );
 }
