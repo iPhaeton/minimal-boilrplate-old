@@ -1,4 +1,4 @@
-import {createStore, compose, applyMiddleware} from 'redux';
+import {createStore, compose, applyMiddleware, Store} from 'redux';
 import createReducer from './reducer';
 import freeze from 'redux-freeze';
 
@@ -20,11 +20,13 @@ export default function configureStore (initialState = {}) {
         devtools(),
     ]
 
-    const store = createStore(
+    const store: any = createStore(//todo: do not use any
         createReducer(),
         initialState,
         compose(...enhancers),
     );
+
+    store.asyncReducers = {}
 
     return store;
 }
