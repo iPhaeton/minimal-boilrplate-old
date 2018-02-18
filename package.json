@@ -1,5 +1,5 @@
 {
-  "name": "noviopus-dbeditor",
+  "name": "minimal-react-boilrplate",
   "scripts": {
     "start": "node server",
     "start:dev": "NODE_ENV=development npm run start",
