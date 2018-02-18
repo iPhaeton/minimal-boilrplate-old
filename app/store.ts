@@ -21,7 +21,7 @@ export default function configureStore (initialState = {}) {
     ]
 
     const store: any = createStore(//todo: do not use any
-        createReducer(),
+        createReducer({}),
         initialState,
         compose(...enhancers),
     );

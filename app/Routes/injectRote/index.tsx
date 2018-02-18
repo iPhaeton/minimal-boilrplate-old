@@ -17,8 +17,6 @@ export default (path: string) => {
         }
 
         async componentWillMount() {
-            console.log(this.context.store)
-
             const Component = await import(`../../components/${path}`);
             this.setState({Component: Component.default});
         }
