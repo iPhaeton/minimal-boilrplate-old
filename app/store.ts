@@ -1,14 +1,11 @@
-import {createStore, compose, applyMiddleware, Store} from 'redux';
+import {createStore, compose, applyMiddleware, Store, Reducer} from 'redux';
 import createReducer from './reducer';
 import freeze from 'redux-freeze';
+import {IStore} from "types/redux";
 
 declare const window: Window & {
     devToolsExtension: any,
 };
-
-interface IStore extends Store<any> {
-    asyncReducers: any;
-}
 
 const devtools = window.devToolsExtension || (() => (noop: any) => noop);
 
