@@ -6,6 +6,10 @@ declare const window: Window & {
     devToolsExtension: any,
 };
 
+interface IStore extends Store<any> {
+    asyncReducers: any;
+}
+
 const devtools = window.devToolsExtension || (() => (noop: any) => noop);
 
 export default function configureStore (initialState = {}) {
@@ -20,13 +24,14 @@ export default function configureStore (initialState = {}) {
         devtools(),
     ]
 
-    const store: any = createStore(//todo: do not use any
-        createReducer({}),
-        initialState,
-        compose(...enhancers),
-    );
-
-    store.asyncReducers = {}
+    const store: IStore = {
+        ...createStore(
+            createReducer({}),
+            initialState,
+            compose(...enhancers),
+        ),
+        asyncReducers: {},
+    }
 
     return store;
 }
