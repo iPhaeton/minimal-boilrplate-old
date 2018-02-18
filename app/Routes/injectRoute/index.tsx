@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
+import injectReducers from 'utils/injectReducers';
 
 interface ILoadableState {
     //todo ger rid of any
@@ -24,12 +25,16 @@ export default (path: string, reducers?: any) => {
                 reducerNames.map(name => import(`../../components/${reducers[name]}`))
             );
 
-            console.log(importedReducers);
+            return reducerNames.reduce((reducers, name, index) => ({
+                ...reducers,
+                [name]: importedReducers[index].default,
+            }), {});
         }
 
         async componentWillMount() {
             if(reducers) {
-                await this.importReducers();
+                const reducersToInject = await this.importReducers();
+                injectReducers(this.context.store, reducersToInject);
             }
 
             const Component = await import(`../../components/${path}`);

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Home from 'components/Home';
 import {Route} from 'react-router-dom';
-import injectRoute from 'Routes/injectRote';
+import injectRoute from './injectRoute';
 
 export default () => {
     return (
